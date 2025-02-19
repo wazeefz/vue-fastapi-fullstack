@@ -5,9 +5,18 @@ from typing import List
 from pydantic import BaseModel
 from datetime import datetime
 
-from . import database, models
+from  . import database, models
+from .routers.weather import router as weather_router
+from .routers.document import router as document_router
+from .routers.textsummarize import router as textsummarize_router
+from .routers.imageanalytics import router as imageanalytics_router
 
 app = FastAPI()
+
+app.include_router(weather_router)
+app.include_router(document_router)
+app.include_router(textsummarize_router)
+app.include_router(imageanalytics_router)
 
 app.add_middleware(
     CORSMiddleware,
