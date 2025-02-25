@@ -10,6 +10,7 @@ from .routers.weather import router as weather_router
 from .routers.document import router as document_router
 from .routers.textsummarize import router as textsummarize_router
 from .routers.imageanalytics import router as imageanalytics_router
+from .routers.agenticai import router as agenticai_router
 
 app = FastAPI()
 
@@ -17,6 +18,7 @@ app.include_router(weather_router)
 app.include_router(document_router)
 app.include_router(textsummarize_router)
 app.include_router(imageanalytics_router)
+app.include_router(agenticai_router)
 
 app.add_middleware(
     CORSMiddleware,
